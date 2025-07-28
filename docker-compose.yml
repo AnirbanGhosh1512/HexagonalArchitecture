@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  apislayer:
+    image: ${DOCKER_REGISTRY-}apislayer
+    build:
+      context: .
+      dockerfile: APIsLayer/Dockerfile
