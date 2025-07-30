@@ -20,6 +20,16 @@ namespace Domain.Models
             Status = TaskStatus.Pending();
         }
 
+        // Constructor for testing
+        internal TaskToDo(Guid id, string title, string description, DateTime createdAt)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            Status = TaskStatus.Pending();
+            createdAt = createdAt;
+        }
+
         public void MarkCompleted()
         {
             Status = TaskStatus.Completed();

@@ -3,8 +3,6 @@
 /Users/anirbanghosh/Projects/HexagonalArchitecture/Domain/bin/Debug/net7.0/Domain.pdb
 /Users/anirbanghosh/Projects/HexagonalArchitecture/Domain/obj/Debug/net7.0/Domain.csproj.AssemblyReference.cache
 /Users/anirbanghosh/Projects/HexagonalArchitecture/Domain/obj/Debug/net7.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
-/Users/anirbanghosh/Projects/HexagonalArchitecture/Domain/obj/Debug/net7.0/Domain.AssemblyInfoInputs.cache
-/Users/anirbanghosh/Projects/HexagonalArchitecture/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs
 /Users/anirbanghosh/Projects/HexagonalArchitecture/Domain/obj/Debug/net7.0/Domain.csproj.CoreCompileInputs.cache
 /Users/anirbanghosh/Projects/HexagonalArchitecture/Domain/obj/Debug/net7.0/Domain.dll
 /Users/anirbanghosh/Projects/HexagonalArchitecture/Domain/obj/Debug/net7.0/refint/Domain.dll

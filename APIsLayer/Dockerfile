@@ -1,18 +1,12 @@
-# Stage 1: Build
+# Build stage
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
+COPY . .
+RUN dotnet restore "./APIsLayer/APIsLayer.csproj"
+RUN dotnet publish "./APIsLayer/APIsLayer.csproj" -c Release -o /app/publish
 
-COPY *.csproj ./
-RUN dotnet restore
-
-COPY . ./
-# ⬇️ publish into a folder in build stage
-RUN dotnet publish -c Release -o /out
-
-# Stage 2: Run
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS final
 WORKDIR /app
-COPY --from=build /out .
-
-EXPOSE 80
+COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "APIsLayer.dll"]

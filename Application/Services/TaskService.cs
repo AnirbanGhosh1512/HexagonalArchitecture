@@ -16,9 +16,9 @@ namespace Application.Services
             _repository = repository;
         }
 
-        public async Task<TaskToDo?> GetTaskByIdAsync(Guid id)
+        public async Task<TaskToDo?> GetTaskByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            return await _repository.GetByIdAsync(id);
+            return await _repository.GetByIdAsync(id, cancellationToken);
         }
 
         public async Task<IEnumerable<TaskToDo>> GetAllTasksAsync()
@@ -26,10 +26,10 @@ namespace Application.Services
             return await _repository.GetAllAsync();
         }
 
-        public async Task<TaskToDo> AddTaskAsync(TaskDto dto)
+        public async Task<TaskToDo> AddTaskAsync(TaskDto dto, CancellationToken cancellationToken)
         {
             var task = new TaskToDo(Guid.NewGuid(), dto.Title, dto.Description);
-            await _repository.AddAsync(task);
+            await _repository.AddAsync(task, cancellationToken);
             await _repository.SaveChangesAsync();
             return task;
         }

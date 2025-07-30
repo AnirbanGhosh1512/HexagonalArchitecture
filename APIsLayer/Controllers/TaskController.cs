@@ -23,9 +23,9 @@ namespace APIsLayer.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetTask(Guid id)
+        public async Task<IActionResult> GetTask(Guid id, CancellationToken cancellationToken)
         {
-            var task = await _taskService.GetTaskByIdAsync(id);
+            var task = await _taskService.GetTaskByIdAsync(id, cancellationToken);
             if (task == null) return NotFound();
             return Ok(task);
         }
@@ -38,9 +38,9 @@ namespace APIsLayer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] TaskDto dto)
+        public async Task<IActionResult> Create([FromBody] TaskDto dto, CancellationToken cancellationToken)
         {
-            var task = await _taskService.AddTaskAsync(dto);
+            var task = await _taskService.AddTaskAsync(dto, cancellationToken);
 
             return CreatedAtAction(
                 nameof(GetTask),                     // the GET method name
